@@ -1,0 +1,1683 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Earth &amp; Ink — Tania Estrada</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Montserrat:wght@200;300;400&display=swap" rel="stylesheet">
+<style>
+
+/* ─── RESET & BASE ─────────────────────────────────── */
+*, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+html { scroll-behavior:smooth; font-size:16px; }
+
+body {
+background: #FDFBF8;
+color: #2C2520;
+font-family: ‘Montserrat’, sans-serif;
+font-weight: 300;
+overflow-x: hidden;
+-webkit-font-smoothing: antialiased;
+}
+
+/* ─── COLOUR TOKENS ────────────────────────────────── */
+:root {
+–white:    #FDFBF8;
+–off:      #F5F1EC;
+–pale:     #EDE7DE;
+–stone:    #D6CCBF;
+–warm:     #C2B8AA;
+–bark:     #8C7F70;
+–earth:    #5E5045;
+–deep:     #2C2520;
+–gold:     #A8966E;
+–gold-lt:  #C4B48E;
+}
+
+/* ─── TYPOGRAPHY ───────────────────────────────────── */
+.display {
+font-family: ‘Cormorant Garamond’, serif;
+font-weight: 300;
+line-height: 1.0;
+letter-spacing: -0.01em;
+}
+
+.display-italic {
+font-family: ‘Cormorant Garamond’, serif;
+font-weight: 300;
+font-style: italic;
+line-height: 1.0;
+}
+
+.eyebrow {
+font-size: 0.62rem;
+letter-spacing: 0.32em;
+text-transform: uppercase;
+color: var(–gold);
+font-weight: 300;
+}
+
+/* ─── UTILITY ──────────────────────────────────────── */
+.rule {
+width: 100%;
+height: 1px;
+background: var(–stone);
+}
+
+.rule-gold {
+width: 2.5rem;
+height: 1px;
+background: var(–gold);
+display: inline-block;
+}
+
+/* ─── NAV ──────────────────────────────────────────── */
+nav {
+position: fixed;
+inset: 0 0 auto 0;
+z-index: 500;
+display: flex;
+justify-content: space-between;
+align-items: center;
+padding: 1.8rem 6rem;
+background: rgba(253,251,248,0.95);
+backdrop-filter: blur(10px);
+border-bottom: 1px solid var(–pale);
+}
+
+.nav-wordmark {
+font-family: ‘Cormorant Garamond’, serif;
+font-size: 1.25rem;
+font-weight: 400;
+letter-spacing: 0.14em;
+color: var(–deep);
+text-decoration: none;
+}
+
+.nav-wordmark span { color: var(–gold); font-style: italic; }
+
+.nav-links {
+display: flex;
+gap: 3rem;
+list-style: none;
+}
+
+.nav-links a {
+font-size: 0.65rem;
+letter-spacing: 0.22em;
+text-transform: uppercase;
+color: var(–bark);
+text-decoration: none;
+transition: color 0.25s;
+}
+
+.nav-links a:hover { color: var(–deep); }
+
+.nav-cta {
+font-size: 0.65rem;
+letter-spacing: 0.22em;
+text-transform: uppercase;
+color: var(–earth);
+text-decoration: none;
+padding: 0.55rem 1.6rem;
+border: 1px solid var(–gold);
+transition: background 0.25s, color 0.25s;
+}
+
+.nav-cta:hover { background: var(–gold); color: var(–white); }
+
+/* ─── HERO ─────────────────────────────────────────── */
+.hero {
+min-height: 100vh;
+display: grid;
+grid-template-columns: 1fr 1fr;
+padding: 0 6rem;
+padding-top: 8rem;
+align-items: center;
+gap: 6rem;
+border-bottom: 1px solid var(–pale);
+}
+
+.hero-left {
+animation: fadeUp 1s ease both;
+}
+
+.hero-meta {
+display: flex;
+align-items: center;
+gap: 1.2rem;
+margin-bottom: 2.2rem;
+}
+
+.hero-title {
+font-size: clamp(4rem, 6.5vw, 6.5rem);
+color: var(–deep);
+margin-bottom: 0.2rem;
+}
+
+.hero-title-italic {
+font-size: clamp(4rem, 6.5vw, 6.5rem);
+color: var(–bark);
+margin-bottom: 2rem;
+}
+
+.hero-tagline {
+font-family: ‘Cormorant Garamond’, serif;
+font-size: clamp(1rem, 1.6vw, 1.35rem);
+font-style: italic;
+font-weight: 300;
+color: var(–warm);
+margin-bottom: 2rem;
+letter-spacing: 0.02em;
+}
+
+.hero-desc {
+font-size: 0.85rem;
+line-height: 2;
+color: var(–bark);
+max-width: 440px;
+margin-bottom: 1rem;
+}
+
+.hero-byline {
+font-size: 0.65rem;
+letter-spacing: 0.22em;
+text-transform: uppercase;
+color: var(–warm);
+margin-bottom: 3rem;
+}
+
+.hero-byline strong { color: var(–earth); font-weight: 400; }
+
+.hero-actions {
+display: flex;
+gap: 2rem;
+align-items: center;
+}
+
+.btn-fill {
+font-size: 0.65rem;
+letter-spacing: 0.24em;
+text-transform: uppercase;
+color: var(–white);
+background: var(–deep);
+text-decoration: none;
+padding: 0.9rem 2.4rem;
+transition: background 0.25s;
+}
+
+.btn-fill:hover { background: var(–earth); }
+
+.btn-line {
+font-size: 0.65rem;
+letter-spacing: 0.22em;
+text-transform: uppercase;
+color: var(–bark);
+text-decoration: none;
+border-bottom: 1px solid var(–stone);
+padding-bottom: 0.25rem;
+transition: color 0.25s, border-color 0.25s;
+}
+
+.btn-line:hover { color: var(–gold); border-color: var(–gold); }
+
+/* Hero stats */
+.hero-stats {
+display: flex;
+gap: 3.5rem;
+margin-top: 4rem;
+padding-top: 2.5rem;
+border-top: 1px solid var(–pale);
+}
+
+.stat-num {
+font-family: ‘Cormorant Garamond’, serif;
+font-size: 2rem;
+font-weight: 300;
+color: var(–gold);
+display: block;
+line-height: 1;
+margin-bottom: 0.3rem;
+}
+
+.stat-label {
+font-size: 0.6rem;
+letter-spacing: 0.2em;
+text-transform: uppercase;
+color: var(–bark);
+}
+
+/* Hero right — brand mark panel */
+.hero-right {
+display: flex;
+justify-content: center;
+align-items: center;
+animation: fadeIn 1.4s ease both;
+animation-delay: 0.3s;
+}
+
+.brand-panel {
+width: 100%;
+max-width: 380px;
+aspect-ratio: 3/4;
+background: var(–off);
+border: 1px solid var(–pale);
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+gap: 0;
+position: relative;
+padding: 3rem;
+}
+
+.brand-panel::before {
+content: ‘’;
+position: absolute;
+inset: 14px;
+border: 1px solid var(–stone);
+pointer-events: none;
+}
+
+.brand-panel-name {
+font-family: ‘Cormorant Garamond’, serif;
+font-size: 2rem;
+font-weight: 400;
+letter-spacing: 0.2em;
+color: var(–earth);
+text-align: center;
+line-height: 1.2;
+}
+
+.brand-panel-rule {
+width: 2rem;
+height: 1px;
+background: var(–gold);
+margin: 1.4rem auto;
+}
+
+.brand-panel-sub {
+font-size: 0.58rem;
+letter-spacing: 0.3em;
+text-transform: uppercase;
+color: var(–bark);
+text-align: center;
+line-height: 2;
+}
+
+.brand-panel-rating {
+font-family: ‘Cormorant Garamond’, serif;
+font-size: 0.95rem;
+color: var(–gold);
+letter-spacing: 0.1em;
+margin-top: 1.5rem;
+}
+
+/* ─── SECTION SHELL ────────────────────────────────── */
+.section {
+padding: 7rem 6rem;
+border-bottom: 1px solid var(–pale);
+}
+
+.section-header {
+display: flex;
+align-items: baseline;
+gap: 2rem;
+margin-bottom: 5rem;
+}
+
+.section-header .rule { flex: 1; }
+
+/* ─── ABOUT ────────────────────────────────────────── */
+.about-grid {
+display: grid;
+grid-template-columns: 280px 1fr;
+gap: 7rem;
+align-items: start;
+}
+
+.about-sidebar {}
+
+.sidebar-name {
+font-family: ‘Cormorant Garamond’, serif;
+font-size: 2.8rem;
+font-weight: 300;
+color: var(–deep);
+line-height: 1.05;
+margin-bottom: 0.4rem;
+}
+
+.sidebar-name-italic {
+font-family: ‘Cormorant Garamond’, serif;
+font-size: 2.8rem;
+font-weight: 300;
+font-style: italic;
+color: var(–bark);
+line-height: 1.05;
+margin-bottom: 2.5rem;
+}
+
+.platform-list {
+display: flex;
+flex-direction: column;
+gap: 0;
+margin-top: 2.5rem;
+border-top: 1px solid var(–pale);
+}
+
+.platform-item {
+display: flex;
+justify-content: space-between;
+align-items: center;
+padding: 1.1rem 0;
+border-bottom: 1px solid var(–pale);
+text-decoration: none;
+color: inherit;
+transition: padding-left 0.25s;
+}
+
+.platform-item:hover { padding-left: 0.5rem; }
+
+.platform-item-name {
+font-size: 0.75rem;
+font-weight: 400;
+color: var(–deep);
+display: block;
+margin-bottom: 0.15rem;
+}
+
+.platform-item-url {
+font-size: 0.62rem;
+color: var(–bark);
+}
+
+.platform-item-arrow {
+font-size: 0.75rem;
+color: var(–stone);
+transition: color 0.25s, transform 0.25s;
+}
+
+.platform-item:hover .platform-item-arrow {
+color: var(–gold);
+transform: translateX(3px);
+}
+
+.platform-static {
+opacity: 0.65;
+cursor: default;
+}
+
+.platform-static:hover { padding-left: 0; }
+
+/* About body */
+.about-body { }
+
+.about-prose {
+font-size: 0.875rem;
+line-height: 2.1;
+color: var(–bark);
+max-width: 680px;
+margin-bottom: 3.5rem;
+}
+
+.about-prose p + p { margin-top: 1.2rem; }
+
+.about-prose em { color: var(–earth); font-style: italic; }
+
+.skills-grid {
+display: grid;
+grid-template-columns: 1fr 1fr;
+gap: 2.5rem 4rem;
+margin-bottom: 3rem;
+}
+
+.skill-col-label {
+font-size: 0.6rem;
+letter-spacing: 0.28em;
+text-transform: uppercase;
+color: var(–gold);
+margin-bottom: 1.2rem;
+display: block;
+}
+
+.skill-col ul {
+list-style: none;
+display: flex;
+flex-direction: column;
+gap: 0.55rem;
+}
+
+.skill-col li {
+font-size: 0.8rem;
+color: var(–bark);
+padding-left: 1rem;
+position: relative;
+}
+
+.skill-col li::before {
+content: ‘’;
+position: absolute;
+left: 0;
+top: 50%;
+transform: translateY(-50%);
+width: 0.25rem;
+height: 1px;
+background: var(–gold);
+}
+
+/* Certs */
+.certs-box {
+border: 1px solid var(–pale);
+padding: 2rem 2.5rem;
+background: var(–off);
+}
+
+.certs-label {
+font-size: 0.6rem;
+letter-spacing: 0.28em;
+text-transform: uppercase;
+color: var(–gold);
+margin-bottom: 1.4rem;
+display: block;
+}
+
+.certs-wrap {
+display: flex;
+flex-wrap: wrap;
+gap: 0.6rem;
+}
+
+.cert {
+font-size: 0.68rem;
+padding: 0.3rem 0.9rem;
+border: 1px solid var(–stone);
+color: var(–bark);
+background: var(–white);
+letter-spacing: 0.04em;
+}
+
+/* ─── COLLECTIONS ──────────────────────────────────── */
+.collections-section { padding: 7rem 6rem; border-bottom: 1px solid var(–pale); }
+
+.collections-intro-row {
+display: grid;
+grid-template-columns: 1fr 1fr;
+gap: 6rem;
+align-items: end;
+margin-bottom: 6rem;
+padding-bottom: 4rem;
+border-bottom: 1px solid var(–pale);
+}
+
+.collections-intro-text {
+font-size: 0.875rem;
+line-height: 2;
+color: var(–bark);
+}
+
+/* Collection: Candles */
+.candle-row {
+display: grid;
+grid-template-columns: 1fr 1fr;
+gap: 5rem;
+align-items: start;
+margin-bottom: 6rem;
+padding-bottom: 6rem;
+border-bottom: 1px solid var(–pale);
+}
+
+.candle-panel {
+aspect-ratio: 3/4;
+background: var(–off);
+border: 1px solid var(–pale);
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+gap: 1.5rem;
+position: relative;
+}
+
+.candle-panel::before {
+content: ‘’;
+position: absolute;
+inset: 12px;
+border: 1px solid var(–stone);
+pointer-events: none;
+}
+
+.candle-panel-icon {
+width: 3rem;
+height: 3rem;
+border: 1px solid var(–gold);
+display: flex;
+align-items: center;
+justify-content: center;
+transform: rotate(45deg);
+}
+
+.candle-panel-icon span {
+transform: rotate(-45deg);
+font-size: 0.6rem;
+letter-spacing: 0.18em;
+text-transform: uppercase;
+color: var(–gold);
+}
+
+.candle-panel-name {
+font-family: ‘Cormorant Garamond’, serif;
+font-size: 1.4rem;
+font-style: italic;
+color: var(–earth);
+text-align: center;
+line-height: 1.3;
+}
+
+.candle-panel-sub {
+font-size: 0.55rem;
+letter-spacing: 0.28em;
+text-transform: uppercase;
+color: var(–bark);
+text-align: center;
+}
+
+.candle-info {}
+
+.collection-eyebrow {
+font-size: 0.6rem;
+letter-spacing: 0.32em;
+text-transform: uppercase;
+color: var(–gold);
+margin-bottom: 0.8rem;
+display: block;
+}
+
+.collection-heading {
+font-family: ‘Cormorant Garamond’, serif;
+font-size: clamp(1.8rem, 3vw, 2.8rem);
+font-weight: 300;
+color: var(–deep);
+line-height: 1.1;
+margin-bottom: 0.3rem;
+}
+
+.collection-heading-italic {
+font-family: ‘Cormorant Garamond’, serif;
+font-size: clamp(1.8rem, 3vw, 2.8rem);
+font-weight: 300;
+font-style: italic;
+color: var(–bark);
+line-height: 1.1;
+margin-bottom: 1.5rem;
+}
+
+.collection-desc {
+font-size: 0.85rem;
+line-height: 2;
+color: var(–bark);
+max-width: 520px;
+margin-bottom: 2rem;
+}
+
+.chips {
+display: flex;
+flex-wrap: wrap;
+gap: 0.5rem;
+margin-bottom: 2.5rem;
+}
+
+.chip {
+font-size: 0.62rem;
+letter-spacing: 0.1em;
+text-transform: uppercase;
+padding: 0.35rem 0.9rem;
+border: 1px solid var(–stone);
+color: var(–bark);
+}
+
+.spec-row {
+display: grid;
+grid-template-columns: repeat(4, 1fr);
+gap: 0;
+border: 1px solid var(–pale);
+margin-top: 2rem;
+}
+
+.spec-cell {
+padding: 1.5rem 1.2rem;
+border-right: 1px solid var(–pale);
+text-align: center;
+}
+
+.spec-cell:last-child { border-right: none; }
+
+.spec-val {
+font-family: ‘Cormorant Garamond’, serif;
+font-size: 1.6rem;
+font-weight: 300;
+color: var(–gold);
+display: block;
+line-height: 1;
+margin-bottom: 0.4rem;
+}
+
+.spec-key {
+font-size: 0.58rem;
+letter-spacing: 0.18em;
+text-transform: uppercase;
+color: var(–bark);
+}
+
+/* Mockup placeholder grid */
+.photo-grid {
+display: grid;
+gap: 1px;
+background: var(–pale);
+margin-top: 2rem;
+}
+
+.photo-grid.g3 { grid-template-columns: repeat(3, 1fr); }
+.photo-grid.g4 { grid-template-columns: repeat(4, 1fr); }
+.photo-grid.g2 { grid-template-columns: repeat(2, 1fr); }
+
+.photo-cell {
+aspect-ratio: 1;
+background: var(–off);
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+gap: 0.6rem;
+transition: background 0.3s;
+position: relative;
+overflow: hidden;
+}
+
+.photo-cell:hover { background: var(–pale); }
+
+.photo-cell img {
+width: 100%;
+height: 100%;
+object-fit: cover;
+position: absolute;
+inset: 0;
+}
+
+.photo-placeholder {
+text-align: center;
+padding: 1.5rem;
+}
+
+.photo-placeholder-label {
+font-size: 0.6rem;
+letter-spacing: 0.2em;
+text-transform: uppercase;
+color: var(–warm);
+display: block;
+margin-bottom: 0.3rem;
+}
+
+.photo-placeholder-hint {
+font-size: 0.58rem;
+color: var(–stone);
+}
+
+/* Prints layout */
+.prints-row {
+margin-bottom: 6rem;
+padding-bottom: 6rem;
+border-bottom: 1px solid var(–pale);
+}
+
+.prints-showcase {
+display: grid;
+grid-template-columns: 1.5fr 1fr 1fr;
+grid-template-rows: 1fr 1fr;
+gap: 1px;
+background: var(–pale);
+margin-top: 3rem;
+}
+
+.print-cell {
+background: var(–off);
+padding: 2rem;
+display: flex;
+flex-direction: column;
+justify-content: flex-end;
+min-height: 220px;
+transition: background 0.3s;
+position: relative;
+}
+
+.print-cell:hover { background: var(–pale); }
+
+.print-cell.tall { grid-row: span 2; min-height: 440px; }
+
+.print-cell-eyebrow {
+font-size: 0.56rem;
+letter-spacing: 0.24em;
+text-transform: uppercase;
+color: var(–gold);
+margin-bottom: 0.3rem;
+}
+
+.print-cell-name {
+font-family: ‘Cormorant Garamond’, serif;
+font-size: 1.1rem;
+font-style: italic;
+color: var(–earth);
+}
+
+.prints-note {
+font-size: 0.72rem;
+color: var(–warm);
+font-style: italic;
+margin-top: 1.2rem;
+text-align: right;
+}
+
+/* Apparel */
+.apparel-row {}
+
+.apparel-grid {
+display: grid;
+grid-template-columns: repeat(4, 1fr);
+gap: 1px;
+background: var(–pale);
+margin-top: 3rem;
+}
+
+.apparel-cell {
+background: var(–off);
+padding: 2.5rem 2rem;
+display: flex;
+flex-direction: column;
+gap: 0.8rem;
+transition: background 0.3s;
+}
+
+.apparel-cell:hover { background: var(–pale); }
+
+.apparel-cell-marker {
+width: 1.5rem;
+height: 1px;
+background: var(–gold);
+margin-bottom: 0.5rem;
+}
+
+.apparel-cell-name {
+font-family: ‘Cormorant Garamond’, serif;
+font-size: 1.2rem;
+font-weight: 400;
+color: var(–deep);
+}
+
+.apparel-cell-desc {
+font-size: 0.78rem;
+line-height: 1.8;
+color: var(–bark);
+}
+
+/* ─── PROCESS / TOOLS ──────────────────────────────── */
+.tools-section {
+padding: 7rem 6rem;
+background: var(–off);
+border-bottom: 1px solid var(–pale);
+}
+
+.tools-grid {
+display: grid;
+grid-template-columns: repeat(3, 1fr);
+gap: 0;
+border: 1px solid var(–pale);
+margin-top: 4rem;
+}
+
+.tool-cell {
+padding: 3rem 2.5rem;
+border-right: 1px solid var(–pale);
+border-bottom: 1px solid var(–pale);
+transition: background 0.3s;
+}
+
+.tool-cell:hover { background: var(–white); }
+
+.tool-cell:nth-child(3n) { border-right: none; }
+.tool-cell:nth-child(n+4) { border-bottom: none; }
+
+.tool-marker {
+font-family: ‘Cormorant Garamond’, serif;
+font-size: 1.6rem;
+font-weight: 300;
+color: var(–stone);
+line-height: 1;
+margin-bottom: 1.5rem;
+display: block;
+}
+
+.tool-name {
+font-family: ‘Cormorant Garamond’, serif;
+font-size: 1.25rem;
+font-weight: 400;
+color: var(–deep);
+margin-bottom: 0.8rem;
+}
+
+.tool-desc {
+font-size: 0.78rem;
+line-height: 1.85;
+color: var(–bark);
+}
+
+/* ─── EXPERIENCE ───────────────────────────────────── */
+.experience-section {
+padding: 7rem 6rem;
+border-bottom: 1px solid var(–pale);
+}
+
+.exp-list {
+margin-top: 4rem;
+}
+
+.exp-item {
+display: grid;
+grid-template-columns: 160px 1fr;
+gap: 4rem;
+padding: 3rem 0;
+border-bottom: 1px solid var(–pale);
+position: relative;
+}
+
+.exp-item:first-child { border-top: 1px solid var(–pale); }
+
+.exp-date-col {}
+
+.exp-date {
+font-size: 0.62rem;
+letter-spacing: 0.18em;
+text-transform: uppercase;
+color: var(–gold);
+display: block;
+margin-bottom: 0.5rem;
+}
+
+.exp-marker {
+width: 0.8rem;
+height: 1px;
+background: var(–stone);
+margin-top: 0.5rem;
+}
+
+.exp-item.featured .exp-marker { background: var(–gold); width: 1.2rem; }
+
+.exp-body {}
+
+.exp-role {
+font-family: ‘Cormorant Garamond’, serif;
+font-size: 1.35rem;
+font-weight: 400;
+color: var(–deep);
+margin-bottom: 0.25rem;
+}
+
+.exp-org {
+font-size: 0.72rem;
+letter-spacing: 0.08em;
+color: var(–bark);
+margin-bottom: 1.2rem;
+}
+
+.exp-points {
+list-style: none;
+display: flex;
+flex-direction: column;
+gap: 0.5rem;
+}
+
+.exp-points li {
+font-size: 0.8rem;
+line-height: 1.8;
+color: var(–bark);
+padding-left: 1.2rem;
+position: relative;
+}
+
+.exp-points li::before {
+content: ‘’;
+position: absolute;
+left: 0;
+top: 0.7em;
+width: 0.5rem;
+height: 1px;
+background: var(–stone);
+}
+
+.exp-edu {
+font-size: 0.78rem;
+color: var(–bark);
+font-style: italic;
+margin-top: 2rem;
+padding-top: 2rem;
+border-top: 1px solid var(–pale);
+}
+
+/* ─── CONNECT ──────────────────────────────────────── */
+.connect-section {
+padding: 7rem 6rem;
+border-bottom: 1px solid var(–pale);
+}
+
+.connect-grid {
+display: grid;
+grid-template-columns: repeat(3, 1fr);
+gap: 1px;
+background: var(–pale);
+margin-top: 4rem;
+}
+
+.connect-card {
+background: var(–white);
+padding: 3rem 2.5rem;
+text-decoration: none;
+color: inherit;
+display: flex;
+flex-direction: column;
+gap: 0.6rem;
+transition: background 0.3s;
+}
+
+.connect-card:hover { background: var(–off); }
+
+.connect-card-static {
+opacity: 0.7;
+cursor: default;
+}
+
+.connect-card-static:hover { background: var(–white); }
+
+.cc-eyebrow {
+font-size: 0.58rem;
+letter-spacing: 0.3em;
+text-transform: uppercase;
+color: var(–gold);
+}
+
+.cc-name {
+font-family: ‘Cormorant Garamond’, serif;
+font-size: 1.7rem;
+font-weight: 300;
+color: var(–deep);
+line-height: 1.05;
+}
+
+.cc-handle {
+font-size: 0.72rem;
+color: var(–bark);
+font-style: italic;
+}
+
+.cc-desc {
+font-size: 0.78rem;
+line-height: 1.85;
+color: var(–bark);
+margin-top: 0.5rem;
+flex: 1;
+}
+
+.cc-action {
+font-size: 0.6rem;
+letter-spacing: 0.22em;
+text-transform: uppercase;
+color: var(–warm);
+margin-top: 1.5rem;
+display: flex;
+align-items: center;
+gap: 0.5rem;
+transition: color 0.25s, gap 0.25s;
+}
+
+.cc-action::after { content: ‘→’; }
+
+.connect-card:hover .cc-action { color: var(–gold); gap: 0.9rem; }
+
+/* ─── CTA ──────────────────────────────────────────── */
+.cta-section {
+padding: 9rem 6rem;
+text-align: center;
+border-bottom: 1px solid var(–pale);
+background: var(–off);
+}
+
+.cta-rule {
+width: 2rem;
+height: 1px;
+background: var(–gold);
+margin: 0 auto 2.5rem;
+}
+
+.cta-title {
+font-size: clamp(2.5rem, 5vw, 4.5rem);
+color: var(–deep);
+margin-bottom: 0.3rem;
+}
+
+.cta-title-italic {
+font-size: clamp(2.5rem, 5vw, 4.5rem);
+color: var(–bark);
+margin-bottom: 2rem;
+}
+
+.cta-body {
+font-size: 0.875rem;
+line-height: 2;
+color: var(–bark);
+max-width: 460px;
+margin: 0 auto 3rem;
+}
+
+.cta-link {
+display: inline-block;
+font-size: 0.65rem;
+letter-spacing: 0.3em;
+text-transform: uppercase;
+color: var(–earth);
+text-decoration: none;
+border: 1px solid var(–gold);
+padding: 1rem 3rem;
+transition: background 0.25s, color 0.25s;
+}
+
+.cta-link:hover { background: var(–gold); color: var(–white); }
+
+/* ─── FOOTER ───────────────────────────────────────── */
+footer {
+padding: 2.5rem 6rem;
+display: flex;
+justify-content: space-between;
+align-items: center;
+border-top: 1px solid var(–pale);
+background: var(–white);
+}
+
+.footer-mark {
+font-family: ‘Cormorant Garamond’, serif;
+font-size: 1rem;
+letter-spacing: 0.12em;
+color: var(–bark);
+}
+
+.footer-copy {
+font-size: 0.6rem;
+letter-spacing: 0.12em;
+color: var(–warm);
+}
+
+.footer-links {
+display: flex;
+gap: 2.5rem;
+}
+
+.footer-links a {
+font-size: 0.6rem;
+letter-spacing: 0.18em;
+text-transform: uppercase;
+color: var(–warm);
+text-decoration: none;
+transition: color 0.25s;
+}
+
+.footer-links a:hover { color: var(–gold); }
+
+/* ─── ANIMATIONS ───────────────────────────────────── */
+@keyframes fadeUp {
+from { opacity: 0; transform: translateY(24px); }
+to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeIn {
+from { opacity: 0; }
+to   { opacity: 1; }
+}
+
+.reveal {
+opacity: 0;
+transform: translateY(18px);
+transition: opacity 0.9s ease, transform 0.9s ease;
+}
+
+.reveal.visible {
+opacity: 1;
+transform: translateY(0);
+}
+
+/* ─── RESPONSIVE ───────────────────────────────────── */
+@media (max-width: 1100px) {
+nav, section, .section, .collections-section, .tools-section,
+.experience-section, .connect-section, .cta-section { padding-left: 3rem; padding-right: 3rem; }
+footer { padding-left: 3rem; padding-right: 3rem; }
+.hero { padding: 8rem 3rem 5rem; gap: 4rem; }
+.about-grid { grid-template-columns: 220px 1fr; gap: 4rem; }
+.tools-grid { grid-template-columns: 1fr 1fr; }
+.tool-cell:nth-child(3n) { border-right: 1px solid var(–pale); }
+.tool-cell:nth-child(2n) { border-right: none; }
+.tool-cell:nth-child(n+5) { border-bottom: none; }
+.tool-cell:nth-child(5), .tool-cell:nth-child(6) { border-bottom: none; }
+}
+
+@media (max-width: 860px) {
+nav { padding: 1.4rem 2rem; }
+.nav-links { gap: 1.5rem; }
+.nav-links li:nth-child(n+4) { display: none; }
+.hero { grid-template-columns: 1fr; padding: 7rem 2rem 4rem; }
+.hero-right { display: none; }
+nav, section, .section, .collections-section, .tools-section,
+.experience-section, .connect-section, .cta-section { padding-left: 2rem; padding-right: 2rem; }
+footer { padding: 2rem; flex-direction: column; gap: 1rem; text-align: center; }
+.about-grid { grid-template-columns: 1fr; gap: 3rem; }
+.candle-row { grid-template-columns: 1fr; gap: 3rem; }
+.collections-intro-row { grid-template-columns: 1fr; gap: 2rem; }
+.prints-showcase { grid-template-columns: 1fr 1fr; }
+.print-cell.tall { grid-row: span 1; min-height: 220px; }
+.apparel-grid { grid-template-columns: 1fr 1fr; }
+.tools-grid { grid-template-columns: 1fr; }
+.tool-cell { border-right: none !important; }
+.tool-cell:last-child { border-bottom: none; }
+.connect-grid { grid-template-columns: 1fr 1fr !important; }
+.exp-item { grid-template-columns: 100px 1fr; gap: 2rem; }
+.skills-grid { grid-template-columns: 1fr; }
+.spec-row { grid-template-columns: 1fr 1fr; }
+.spec-cell:nth-child(2) { border-right: none; }
+.spec-cell:nth-child(3) { border-top: 1px solid var(–pale); }
+.spec-cell:nth-child(4) { border-top: 1px solid var(–pale); border-right: none; }
+}
+</style>
+
+</head>
+<body>
+
+<!-- NAV -->
+
+<nav>
+  <a href="#" class="nav-wordmark">Earth <span>&amp;</span> Ink</a>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#collections">Work</a></li>
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="#connect">Connect</a></li>
+  </ul>
+  <a href="https://earthandink.shop" target="_blank" class="nav-cta">Shop</a>
+</nav>
+
+<!-- HERO -->
+
+<section class="hero" id="home">
+  <div class="hero-left">
+    <div class="hero-meta">
+      <span class="rule-gold"></span>
+      <span class="eyebrow">Quiet Luxury Creative Studio</span>
+    </div>
+    <h1 class="hero-title display">Earth</h1>
+    <h1 class="hero-title-italic display-italic">&amp; Ink</h1>
+    <p class="hero-tagline">Handcrafted with intention. Designed with vision.</p>
+    <p class="hero-desc">An independent creative studio and newly launched e-commerce brand — conceived, designed, and operated entirely by one person. Specialising in front-end brand experience, visual merchandising, and creative direction across multiple platforms, with a current focus on building an organic audience through Shopify and Facebook.</p>
+    <p class="hero-byline">Founded by <strong>Tania Estrada</strong> &nbsp;&middot;&nbsp; E-Commerce Brand Founder &amp; Creative Director</p>
+    <div class="hero-actions">
+      <a href="https://earthandink.shop" target="_blank" class="btn-fill">Visit the Shop</a>
+      <a href="#collections" class="btn-line">View the Work</a>
+    </div>
+    <div class="hero-stats">
+      <div><span class="stat-num">15+</span><span class="stat-label">Years Experience</span></div>
+      <div><span class="stat-num">59</span><span class="stat-label">Active Listings</span></div>
+      <div><span class="stat-num">5.0</span><span class="stat-label">Etsy Rating</span></div>
+      <div><span class="stat-num">3+</span><span class="stat-label">Platforms</span></div>
+    </div>
+  </div>
+  <div class="hero-right">
+    <div class="brand-panel">
+      <div class="brand-panel-name">Earth<br>&amp; Ink</div>
+      <div class="brand-panel-rule"></div>
+      <div class="brand-panel-sub">
+        Quiet Luxury &nbsp;&middot;&nbsp; Est. 2024<br>
+        Candles &nbsp;&middot;&nbsp; Art &nbsp;&middot;&nbsp; Lifestyle
+      </div>
+      <div class="brand-panel-rating">5.0 &nbsp;Etsy</div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+
+<section class="section" id="about">
+  <div class="section-header reveal">
+    <span class="eyebrow">The Founder</span>
+    <div class="rule"></div>
+  </div>
+  <div class="about-grid">
+    <div class="about-sidebar reveal">
+      <div class="sidebar-name display">Tania</div>
+      <div class="sidebar-name-italic display-italic">Estrada</div>
+      <div class="platform-list">
+        <a href="https://earthandink.shop" target="_blank" class="platform-item">
+          <div>
+            <span class="platform-item-name">Shopify Flagship</span>
+            <span class="platform-item-url">earthandink.shop</span>
+          </div>
+          <span class="platform-item-arrow">&#8599;</span>
+        </a>
+        <a href="https://www.facebook.com/61583908697686/" target="_blank" class="platform-item">
+          <div>
+            <span class="platform-item-name">Facebook Community</span>
+            <span class="platform-item-url">Earth &amp; Ink — Quiet Luxury</span>
+          </div>
+          <span class="platform-item-arrow">&#8599;</span>
+        </a>
+        <div class="platform-item platform-static">
+          <div>
+            <span class="platform-item-name">Etsy Marketplace</span>
+            <span class="platform-item-url">EarthandInkShop &nbsp;&middot;&nbsp; 5.0 &#9733; &nbsp;&middot;&nbsp; 59 listings</span>
+          </div>
+        </div>
+        <a href="https://www.instagram.com/skillful.hands.studio?igsh=MWNydnlpaDY3cWY1bg%3D%3D&utm_source=qr" target="_blank" class="platform-item">
+          <div>
+            <span class="platform-item-name">Instagram</span>
+            <span class="platform-item-url">@skillful.hands.studio &nbsp;&middot;&nbsp; Design showcase</span>
+          </div>
+          <span class="platform-item-arrow">&#8599;</span>
+        </a>
+      </div>
+    </div>
+    <div class="about-body reveal">
+      <div class="about-prose">
+        <p>Results-driven E-Commerce Merchandising Manager and Digital Brand Founder with 15+ years of experience bridging federal program management and direct-to-consumer brand building.</p>
+        <p>Founder of Earth &amp; Ink — a newly launched quiet luxury lifestyle brand offering premium hand-poured coconut soy candles, original high-resolution digital art, and curated merchandise across Shopify and Etsy. Every product is conceived and produced entirely in-house, from the debut signature scent <em>La Maison Des Roses</em> — part of a candle range spanning 3 oz, 9.3 oz, and 16 oz across multiple fragrances — to the <em>Cityscapes Reimagined</em> collection and the Pop Art 2026 Limited Edition.</p>
+        <p>The role is front-end focused — storefront architecture, visual merchandising, product presentation, and brand identity. Not a developer or back-end engineer, but fluent in the tools and platforms that bring a brand to life at every customer touchpoint. Currently in an organic growth phase, building a loyal audience through consistent content and community before layering in paid strategy — with Google Analytics and paid campaign experience ready to deploy when the time is right.</p>
+        <p>Mockups are created in Canva and refined through Photopea — adjusting lighting, depth, and layering for polished, professional presentation. Fluent in emerging AI tools as part of an evolving creative workflow, bringing the same discerning eye and design sensibility to every medium. Video content is edited in CapCut across Instagram and YouTube. A natural and rapid adopter of new platforms — each one learned independently, with demonstrated results across Shopify, Etsy, Facebook, Instagram, and YouTube.</p>
+      </div>
+      <div class="skills-grid">
+        <div class="skill-col">
+          <span class="skill-col-label">E-Commerce &amp; Creative</span>
+          <ul>
+            <li>Shopify Storefront Management</li>
+            <li>Etsy Seller Strategy &amp; SEO</li>
+            <li>Visual Merchandising &amp; Curation</li>
+            <li>Original Digital Art Direction</li>
+            <li>Brand Identity &amp; Packaging Design</li>
+            <li>POD Fulfillment — Printful / Printify</li>
+          </ul>
+        </div>
+        <div class="skill-col">
+          <span class="skill-col-label">Tools &amp; Platforms</span>
+          <ul>
+            <li>Canva — creative space for designing mockups, products, and apparel</li>
+            <li>Photopea — Mockups &amp; Layers</li>
+            <li>CapCut — Video Editing</li>
+            <li>Google Analytics &amp; Conversion</li>
+            <li>Paid Campaign Coordination</li>
+            <li>Microsoft Office Suite</li>
+          </ul>
+        </div>
+      </div>
+      <div class="certs-box">
+        <span class="certs-label">Certifications &amp; Professional Training</span>
+        <div class="certs-wrap">
+          <span class="cert">HubSpot Digital Marketing</span>
+          <span class="cert">HubSpot Inbound Marketing</span>
+          <span class="cert">Google Analytics</span>
+          <span class="cert">Digital Marketing &amp; Analytics 2025</span>
+          <span class="cert">Agile Scrum</span>
+          <span class="cert">SharePoint Admin</span>
+          <span class="cert">ServiceNow Admin</span>
+          <span class="cert">Contracting Officer Rep</span>
+          <span class="cert">Appropriations Law</span>
+          <span class="cert">Project Management</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- COLLECTIONS -->
+
+<section class="collections-section" id="collections">
+  <div class="collections-intro-row reveal">
+    <div>
+      <div class="section-header" style="margin-bottom:2rem;">
+        <span class="eyebrow">The Work</span>
+        <div class="rule"></div>
+      </div>
+      <h2 class="display" style="font-size:clamp(2.5rem,4.5vw,4rem);color:var(--deep);line-height:1.05;">Studio</h2>
+      <h2 class="display-italic" style="font-size:clamp(2.5rem,4.5vw,4rem);color:var(--bark);line-height:1.05;">Collections</h2>
+    </div>
+    <p class="collections-intro-text">Every product in the Earth &amp; Ink portfolio is conceived, designed, and produced independently — from first sketch to final mockup. Three core collection pillars, each representing a distinct creative discipline and commercial offering.</p>
+  </div>
+
+  <!-- CANDLES -->
+
+  <div class="candle-row reveal">
+    <div class="candle-panel">
+      <div class="candle-panel-icon"><span>E&amp;I</span></div>
+      <div class="candle-panel-name">La Maison<br>Des Roses</div>
+      <div class="candle-panel-sub">Earth &amp; Ink Candles<br>Premium Coconut Soy Wax</div>
+    </div>
+    <div class="candle-info">
+      <span class="collection-eyebrow">Signature Collection</span>
+      <h3 class="collection-heading display">Premium Hand-Poured</h3>
+      <h3 class="collection-heading-italic display-italic">Candles</h3>
+      <p class="collection-desc">Luxurious 11 oz premium coconut soy wax candles with a 48+ hour burn time. Hand-poured and finished with gold-lid packaging. Label and brand identity designed entirely in-house — from concept to commercial shelf. <em>La Maison Des Roses</em> is the debut signature scent.</p>
+      <div class="chips">
+        <span class="chip">Coconut Soy Wax</span>
+        <span class="chip">11 oz</span>
+        <span class="chip">48+ hr Burn</span>
+        <span class="chip">Gold Lid</span>
+        <span class="chip">In-House Design</span>
+      </div>
+      <div class="spec-row">
+        <div class="spec-cell"><span class="spec-val">11oz</span><span class="spec-key">Premium Weight</span></div>
+        <div class="spec-cell"><span class="spec-val">48+</span><span class="spec-key">Hour Burn</span></div>
+        <div class="spec-cell"><span class="spec-val">100%</span><span class="spec-key">In-House Design</span></div>
+        <div class="spec-cell"><span class="spec-val">Au</span><span class="spec-key">Gold Lid Finish</span></div>
+      </div>
+    </div>
+  </div>
+  <div class="photo-grid g3 reveal" style="margin-bottom:6rem;">
+    <div class="photo-cell"><div class="photo-placeholder"><span class="photo-placeholder-label">Candle — Product Photo</span><span class="photo-placeholder-hint">Replace with your image</span></div></div>
+    <div class="photo-cell"><div class="photo-placeholder"><span class="photo-placeholder-label">Candle — Mockup</span><span class="photo-placeholder-hint">Replace with your image</span></div></div>
+    <div class="photo-cell"><div class="photo-placeholder"><span class="photo-placeholder-label">Candle — Lifestyle</span><span class="photo-placeholder-hint">Replace with your image</span></div></div>
+  </div>
+
+  <!-- DIGITAL PRINTS -->
+
+  <div class="prints-row reveal">
+    <div class="section-header" style="margin-bottom:2rem;">
+      <span class="eyebrow">Wall Art &amp; Fine Art Prints</span>
+      <div class="rule"></div>
+    </div>
+    <h3 class="collection-heading display">Original High-Resolution</h3>
+    <h3 class="collection-heading-italic display-italic">Digital Art Collections</h3>
+    <p class="collection-desc" style="margin-top:1.2rem;">Each print is an original work developed through a rigorous, iterative creative process — directing every element including color story, mood, composition, lighting, and stylistic detail. Available on canvas, framed fine art paper, and as digital downloads. The 2026 Limited Edition Collection, <em>Cityscapes Reimagined</em>, is currently live on the Shopify flagship.</p>
+    <div class="chips">
+      <span class="chip">High Resolution</span>
+      <span class="chip">Canvas Prints</span>
+      <span class="chip">Framed Fine Art</span>
+      <span class="chip">Digital Download</span>
+      <span class="chip">Printful / Printify POD</span>
+      <span class="chip">59 Etsy Listings</span>
+      <span class="chip">Cityscapes Reimagined 2026</span>
+    </div>
+    <div class="prints-showcase">
+      <div class="print-cell tall" style="background:var(--pale);">
+        <span class="print-cell-eyebrow">2026 Limited Edition &nbsp;&middot;&nbsp; Featured</span>
+        <span class="print-cell-name">Cityscapes Reimagined in Pastel</span>
+      </div>
+      <div class="print-cell"><span class="print-cell-eyebrow">Digital Download</span><span class="print-cell-name">Amalfi Coast Series</span></div>
+      <div class="print-cell"><span class="print-cell-eyebrow">Digital Download</span><span class="print-cell-name">Vintage Provence</span></div>
+      <div class="print-cell"><span class="print-cell-eyebrow">Fine Art Print</span><span class="print-cell-name">Tuscany Collection</span></div>
+      <div class="print-cell"><span class="print-cell-eyebrow">Canvas &amp; Framed</span><span class="print-cell-name">Minimalist Wall Art</span></div>
+    </div>
+    <p class="prints-note">Mockups crafted and refined in Canva and Photopea &mdash; lighting, depth, and composition considered for each piece as part of a deliberate, hands-on creative process.</p>
+  </div>
+
+  <!-- APPAREL -->
+
+  <div class="apparel-row reveal">
+    <div class="section-header" style="margin-bottom:2rem;">
+      <span class="eyebrow">POD Apparel &amp; Accessories</span>
+      <div class="rule"></div>
+    </div>
+    <h3 class="collection-heading display">Original Graphic Apparel</h3>
+    <h3 class="collection-heading-italic display-italic">&amp; Merchandise</h3>
+    <p class="collection-desc" style="margin-top:1.2rem;">Thoughtfully designed original graphics applied across apparel, drinkware, and accessories — fulfilled through Printful and Printify for premium quality. Every design originates from Tania's distinct creative vision, part of the expanding quiet luxury lifestyle line.</p>
+    <div class="apparel-grid">
+      <div class="apparel-cell">
+        <div class="apparel-cell-marker"></div>
+        <div class="apparel-cell-name">T-Shirts</div>
+        <div class="apparel-cell-desc">Original graphic designs on premium tees with a quiet luxury aesthetic and distinct visual identity.</div>
+      </div>
+      <div class="apparel-cell">
+        <div class="apparel-cell-marker"></div>
+        <div class="apparel-cell-name">Tote Bags</div>
+        <div class="apparel-cell-desc">Everyday luxury carry. Designed graphics meet refined functional form for the considered lifestyle.</div>
+      </div>
+      <div class="apparel-cell">
+        <div class="apparel-cell-marker"></div>
+        <div class="apparel-cell-name">Mugs &amp; Drinkware</div>
+        <div class="apparel-cell-desc">Original illustrated mugs. The morning ritual elevated through considered, original design.</div>
+      </div>
+      <div class="apparel-cell">
+        <div class="apparel-cell-marker"></div>
+        <div class="apparel-cell-name">Expanding Line</div>
+        <div class="apparel-cell-desc">New categories added continuously — building toward a complete quiet luxury lifestyle brand.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TOOLS -->
+
+<section class="tools-section" id="tools">
+  <div class="section-header reveal">
+    <span class="eyebrow">Creative Toolkit</span>
+    <div class="rule"></div>
+  </div>
+  <h2 class="display reveal" style="font-size:clamp(2rem,3.5vw,3.2rem);color:var(--deep);">Built with</h2>
+  <h2 class="display-italic reveal" style="font-size:clamp(2rem,3.5vw,3.2rem);color:var(--bark);">intention</h2>
+  <div class="tools-grid">
+    <div class="tool-cell reveal">
+      <span class="tool-marker">01</span>
+      <div class="tool-name">Canva</div>
+      <p class="tool-desc">Product mockup creation, brand collateral, and social content. Templates elevated and customised to match the Earth &amp; Ink quiet luxury aesthetic.</p>
+    </div>
+    <div class="tool-cell reveal">
+      <span class="tool-marker">02</span>
+      <div class="tool-name">Photopea</div>
+      <p class="tool-desc">Professional-grade editing comparable to Adobe Photoshop. Used for mockup refinement — adjusting lighting, depth, shadows, and layering for polished product presentation.</p>
+    </div>
+    <div class="tool-cell reveal">
+      <span class="tool-marker">03</span>
+      <div class="tool-name">CapCut</div>
+      <p class="tool-desc">Video editing for Instagram Reels and YouTube short-form content. Developing brand storytelling skills and building an organic video content strategy.</p>
+    </div>
+    <div class="tool-cell reveal">
+      <span class="tool-marker">04</span>
+      <div class="tool-name">Shopify</div>
+      <p class="tool-desc">Full front-end Shopify experience — homepage, collections, navigation, and product presentation. SEO-optimised listings and coordinated paid campaigns.</p>
+    </div>
+    <div class="tool-cell reveal">
+      <span class="tool-marker">05</span>
+      <div class="tool-name">Printful &amp; Printify</div>
+      <p class="tool-desc">Print-on-demand fulfillment for premium apparel, canvas prints, and accessories. Full POD lifecycle from design upload to customer delivery.</p>
+    </div>
+    <div class="tool-cell reveal">
+      <span class="tool-marker">06</span>
+      <div class="tool-name">Google Analytics</div>
+      <p class="tool-desc">Analytics and conversion insights applied to refine product positioning, merchandising strategy, and campaign performance across Shopify and Etsy.</p>
+    </div>
+  </div>
+</section>
+
+<!-- EXPERIENCE -->
+
+<section class="experience-section" id="experience">
+  <div class="section-header reveal">
+    <span class="eyebrow">Professional Background</span>
+    <div class="rule"></div>
+  </div>
+  <h2 class="display reveal" style="font-size:clamp(2rem,3.5vw,3.2rem);color:var(--deep);">15+ Years of</h2>
+  <h2 class="display-italic reveal" style="font-size:clamp(2rem,3.5vw,3.2rem);color:var(--bark);">Excellence</h2>
+  <div class="exp-list">
+    <div class="exp-item featured reveal">
+      <div class="exp-date-col">
+        <span class="exp-date">2024 &mdash; Present</span>
+        <div class="exp-marker"></div>
+      </div>
+      <div class="exp-body">
+        <div class="exp-role">E-Commerce Merchandising Manager &amp; Brand Founder</div>
+        <div class="exp-org">Earth &amp; Ink &mdash; Direct-to-Consumer Shopify Brand (Remote)</div>
+        <ul class="exp-points">
+          <li>Architect and manage the full front-end Shopify experience, coordinating with backend developers on homepage, collections, navigation, and product presentation.</li>
+          <li>Design and produce original high-resolution digital art collections through a disciplined, iterative creative process directing mood, palette, composition, and style.</li>
+          <li>Founded Earth &amp; Ink from concept to commercial launch: logo, packaging, labeling, product photography mockups, and complete brand identity produced entirely in-house.</li>
+          <li>Develop and launch premium hand-poured coconut soy candles and art print collections, managing full product lifecycle, pricing, inventory, and seasonal merchandising.</li>
+          <li>Write and optimise SEO-driven product listings across Shopify and Etsy — titles, descriptions, and metadata driving discoverability and conversion.</li>
+          <li>Apply Google Analytics insights to refine product positioning and inform ongoing merchandising strategy.</li>
+        </ul>
+      </div>
+    </div>
+    <div class="exp-item reveal">
+      <div class="exp-date-col">
+        <span class="exp-date">2024</span>
+        <div class="exp-marker"></div>
+      </div>
+      <div class="exp-body">
+        <div class="exp-role">Acquisitions Support Specialist</div>
+        <div class="exp-org">National Institutes of Health &mdash; K3 Solutions LLC</div>
+        <ul class="exp-points">
+          <li>Conducted market research and vendor price analysis to support federal procurement strategy.</li>
+          <li>Maintained SharePoint-based procurement and vendor tracking systems ensuring full data integrity.</li>
+          <li>Ensured full compliance with Federal Acquisition Regulations (FAR).</li>
+        </ul>
+      </div>
+    </div>
+    <div class="exp-item reveal">
+      <div class="exp-date-col">
+        <span class="exp-date">2021 &mdash; 2024</span>
+        <div class="exp-marker"></div>
+      </div>
+      <div class="exp-body">
+        <div class="exp-role">Program Analyst</div>
+        <div class="exp-org">National Institutes of Health &mdash; Office of Acquisition Management and Policy</div>
+        <ul class="exp-points">
+          <li>Managed full lifecycle of procurement agreements across 27 NIH Institutes and Centers.</li>
+          <li>Produced analytics and usage reports using PRISM and nVision for senior leadership.</li>
+          <li>Maintained procurement catalogs and SharePoint databases for enterprise-wide accessibility.</li>
+        </ul>
+      </div>
+    </div>
+    <div class="exp-item reveal">
+      <div class="exp-date-col">
+        <span class="exp-date">2019 &mdash; 2020</span>
+        <div class="exp-marker"></div>
+      </div>
+      <div class="exp-body">
+        <div class="exp-role">Program Analyst III &mdash; Contracts &amp; Procurement</div>
+        <div class="exp-org">U.S. Department of State</div>
+        <ul class="exp-points">
+          <li>Managed 150+ contracts from initiation through closeout as subject matter expert on procurement policy.</li>
+          <li>Improved workflow efficiency through ServiceNow tracking enhancements.</li>
+        </ul>
+      </div>
+    </div>
+    <div class="exp-item reveal">
+      <div class="exp-date-col">
+        <span class="exp-date">2016 &mdash; 2018</span>
+        <div class="exp-marker"></div>
+      </div>
+      <div class="exp-body">
+        <div class="exp-role">Program Analyst &mdash; Human Capital &amp; Talent Management</div>
+        <div class="exp-org">USAID</div>
+        <ul class="exp-points">
+          <li>Developed program tracking systems for engagement metrics and internal reporting dashboards.</li>
+          <li>Supported digital communications, website updates, and internal SOPs.</li>
+        </ul>
+      </div>
+    </div>
+    <div class="exp-item reveal">
+      <div class="exp-date-col">
+        <span class="exp-date">2011 &mdash; 2015</span>
+        <div class="exp-marker"></div>
+      </div>
+      <div class="exp-body">
+        <div class="exp-role">Senior Program Analyst &mdash; Contracting Officer Representative</div>
+        <div class="exp-org">U.S. Department of State</div>
+        <ul class="exp-points">
+          <li>Oversaw contractor performance and compliance for complex international projects.</li>
+          <li>Coordinated with architects, engineers, and global stakeholders across multi-year engagements.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <p class="exp-edu">Associate of Arts &mdash; Business &nbsp;&middot;&nbsp; University of Phoenix &nbsp;&middot;&nbsp; GPA 3.54</p>
+</section>
+
+<!-- CONNECT -->
+
+<section class="connect-section" id="connect">
+  <div class="section-header reveal">
+    <span class="eyebrow">Find Earth &amp; Ink</span>
+    <div class="rule"></div>
+  </div>
+  <h2 class="display reveal" style="font-size:clamp(2rem,3.5vw,3.2rem);color:var(--deep);">Find us</h2>
+  <h2 class="display-italic reveal" style="font-size:clamp(2rem,3.5vw,3.2rem);color:var(--bark);">everywhere</h2>
+  <div class="connect-grid" style="grid-template-columns:repeat(4,1fr);">
+    <a href="https://earthandink.shop" target="_blank" class="connect-card reveal">
+      <span class="cc-eyebrow">Primary Focus &nbsp;&middot;&nbsp; Newly Launched</span>
+      <span class="cc-name">Shopify<br>Flagship</span>
+      <span class="cc-handle">earthandink.shop</span>
+      <p class="cc-desc">The official Earth &amp; Ink storefront — newly launched and currently in an organic growth phase. Front-end fully merchandised with SEO-optimised listings, curated collections, and a 2026 Limited Edition campaign. Analytics and paid strategy ready to layer in as the audience grows.</p>
+      <span class="cc-action">Visit Store</span>
+    </a>
+    <a href="https://www.facebook.com/61583908697686/" target="_blank" class="connect-card reveal">
+      <span class="cc-eyebrow">Primary Channel &nbsp;&middot;&nbsp; Organic Growth</span>
+      <span class="cc-name">Facebook<br>Community</span>
+      <span class="cc-handle">Earth &amp; Ink — Quiet Luxury for Everyday Living</span>
+      <p class="cc-desc">The primary social channel, linked directly to the Shopify store. Product launches, brand storytelling, and lifestyle content designed to build a loyal community through organic reach — with paid campaign capability available when ready to scale.</p>
+      <span class="cc-action">Follow Along</span>
+    </a>
+    <div class="connect-card connect-card-static reveal">
+      <span class="cc-eyebrow">Marketplace &nbsp;&middot;&nbsp; 5.0 Perfect Rating</span>
+      <span class="cc-name">Etsy<br>Marketplace</span>
+      <span class="cc-handle">EarthandInkShop &nbsp;&middot;&nbsp; 59 Active Listings</span>
+      <p class="cc-desc">59 original listings — minimalist wall art, digital downloads, and print-on-demand apparel. SEO-driven listings with a growing international customer base and a perfect 5-star rating.</p>
+    </div>
+    <a href="https://www.instagram.com/skillful.hands.studio?igsh=MWNydnlpaDY3cWY1bg%3D%3D&utm_source=qr" target="_blank" class="connect-card reveal">
+      <span class="cc-eyebrow">Creative Showcase &nbsp;&middot;&nbsp; Platform in Development</span>
+      <span class="cc-name">Instagram<br>Studio</span>
+      <span class="cc-handle">@skillful.hands.studio</span>
+      <p class="cc-desc">Currently used as a curated space to showcase digital design work and explore the platform's creative tools. A deliberate learning environment — demonstrating the ability to operate across multiple social channels and adapt quickly to new platforms. Primary focus remains on Shopify and Facebook while Instagram strategy continues to develop.</p>
+      <span class="cc-action">View Profile</span>
+    </a>
+  </div>
+</section>
+
+<!-- CTA -->
+
+<section class="cta-section">
+  <div class="cta-rule"></div>
+  <h2 class="cta-title display">Let&rsquo;s create</h2>
+  <h2 class="cta-title-italic display-italic">something together</h2>
+  <p class="cta-body">Open to custom orders, creative collaborations, commissions, and meaningful brand partnerships. Earth &amp; Ink brings intention to everything it touches.</p>
+  <a href="mailto:taniamestrada@yahoo.com" class="cta-link">taniamestrada@yahoo.com</a>
+</section>
+
+<!-- FOOTER -->
+
+<footer>
+  <span class="footer-mark">Earth &amp; Ink</span>
+  <span class="footer-copy">&copy; 2026 Earth &amp; Ink &nbsp;&middot;&nbsp; Tania Estrada. All rights reserved.</span>
+  <div class="footer-links">
+    <a href="https://earthandink.shop" target="_blank">Shop</a>
+    <a href="https://www.facebook.com/61583908697686/" target="_blank">Facebook</a>
+    <a href="https://www.instagram.com/skillful.hands.studio?igsh=MWNydnlpaDY3cWY1bg%3D%3D&utm_source=qr" target="_blank">Instagram</a>
+    <a href="#collections">Work</a>
+    <a href="mailto:taniamestrada@yahoo.com">Email</a>
+  </div>
+</footer>
+
+<script>
+  const els = document.querySelectorAll('.reveal');
+  const obs = new IntersectionObserver((entries) => {
+    entries.forEach((e, i) => {
+      if (e.isIntersecting) {
+        setTimeout(() => e.target.classList.add('visible'), i * 60);
+        obs.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.07 });
+  els.forEach(el => obs.observe(el));
+</script>
+
+</body>
+</html>
